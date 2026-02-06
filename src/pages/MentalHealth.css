@@ -1,0 +1,613 @@
+.mental-health-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Mood Section */
+.mood-section {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.mood-tracker-card,
+.mood-summary-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--neutral-200);
+    backdrop-filter: blur(20px);
+}
+
+.mood-tracker-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.mood-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.mood-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--neutral-100);
+    border: 3px solid transparent;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-width: 90px;
+}
+
+.mood-btn:hover {
+    border-color: var(--mood-color);
+    background: color-mix(in srgb, var(--mood-color) 10%, transparent);
+    transform: translateY(-4px);
+}
+
+.mood-btn.selected {
+    border-color: var(--mood-color);
+    background: color-mix(in srgb, var(--mood-color) 15%, transparent);
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px color-mix(in srgb, var(--mood-color) 30%, transparent);
+}
+
+.mood-emoji {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-block;
+}
+
+.mood-btn:hover .mood-emoji {
+    transform: scale(1.25) rotate(5deg);
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+.mood-label {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.mood-note-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    overflow: hidden;
+}
+
+.mood-note-section textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--space-md);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    resize: vertical;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.mood-note-section textarea:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+.submit-mood {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-glow-green);
+}
+
+.submit-mood:hover {
+    transform: translateY(-2px);
+}
+
+/* Mood Summary */
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.summary-header h3 {
+    font-size: var(--font-size-lg);
+}
+
+.time-range {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--neutral-100);
+    border-radius: var(--radius-full);
+}
+
+.mood-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--space-lg);
+}
+
+.mood-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.stat-circle {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    box-shadow: var(--shadow-glow-green);
+}
+
+.stat-circle.entries {
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-glow-blue);
+}
+
+.stat-circle.today {
+    background: var(--gradient-accent);
+    box-shadow: var(--shadow-glow-purple);
+}
+
+.mood-stat .stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.mood-history {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--neutral-200);
+}
+
+.mood-history-item {
+    width: 52px;
+    height: 52px;
+}
+
+.mood-dot {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow:
+        inset 0 4px 8px rgba(255, 255, 255, 0.4),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.05),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.2s ease;
+}
+
+.mood-dot:hover {
+    transform: scale(1.15) translateY(-2px);
+    z-index: 2;
+    box-shadow:
+        inset 0 4px 8px rgba(255, 255, 255, 0.4),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.05),
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Quote Card - Premium */
+.quote-card {
+    background: var(--gradient-hero);
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow-purple);
+}
+
+.quote-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+}
+
+.quote-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+.quote-card blockquote {
+    font-size: var(--font-size-xl);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    position: relative;
+    z-index: 1;
+}
+
+.quote-card cite {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+.new-quote-btn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.new-quote-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Sections */
+.breathing-section,
+.meditation-section {
+    margin-bottom: var(--space-xl);
+}
+
+.breathing-section h2,
+.meditation-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.section-description {
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+}
+
+/* Breathing Cards */
+.breathing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.breathing-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--neutral-200);
+    transition: all var(--transition-fast);
+}
+
+.breathing-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--accent-teal);
+}
+
+.breathing-card h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.breathing-card p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.breathing-benefit {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    color: var(--accent-teal);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(0, 191, 165, 0.1);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+
+.start-breathing {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--gradient-cool);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3);
+}
+
+.start-breathing:hover {
+    transform: translateY(-2px);
+}
+
+/* Meditation Cards */
+.meditation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-lg);
+}
+
+.meditation-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--neutral-200);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.meditation-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--accent-purple);
+}
+
+.session-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--space-md);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.meditation-card h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+}
+
+.meditation-card p {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.session-meta {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.session-duration,
+.session-category {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--neutral-100);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Breathing Modal */
+.breathing-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.breathing-modal {
+    text-align: center;
+    color: white;
+}
+
+.breathing-modal h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2xl);
+    color: white;
+}
+
+.breathing-visual {
+    margin-bottom: var(--space-2xl);
+}
+
+.breath-circle {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    background: var(--gradient-cool);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(0, 191, 165, 0.5);
+}
+
+.breath-phase {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white;
+}
+
+.breath-counter {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2xl);
+    opacity: 0.8;
+}
+
+.stop-breathing {
+    padding: var(--space-md) var(--space-3xl);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.stop-breathing:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Meditation Modal */
+.meditation-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    z-index: 1000;
+}
+
+.meditation-modal {
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-2xl);
+    text-align: center;
+}
+
+.modal-session-icon {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: var(--space-md);
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
+}
+
+.meditation-modal h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-sm);
+}
+
+.meditation-modal>p {
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+}
+
+.meditation-timer {
+    margin-bottom: var(--space-xl);
+}
+
+.timer-ring {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timer-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.timer-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.meditation-controls {
+    margin-bottom: var(--space-lg);
+}
+
+.meditation-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow-purple);
+    transition: all var(--transition-fast);
+}
+
+.meditation-play:hover {
+    transform: translateY(-2px);
+}
+
+.close-meditation {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    padding: var(--space-sm);
+}
+
+.close-meditation:hover {
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mood-section {
+        grid-template-columns: 1fr;
+    }
+
+    .mood-options {
+        flex-wrap: wrap;
+    }
+}

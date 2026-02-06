@@ -1,0 +1,396 @@
+.profile-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.edit-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--bg-card);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.edit-btn:hover {
+    border-color: var(--primary-500);
+    color: var(--primary-600);
+    transform: translateY(-2px);
+}
+
+.edit-actions {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.cancel-btn {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--neutral-100);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.cancel-btn:hover {
+    background: var(--neutral-200);
+}
+
+.save-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow-green);
+    transition: all var(--transition-fast);
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Profile Content */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.profile-card {
+    grid-column: 1 / -1;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-3xl);
+    border: 1px solid var(--neutral-200);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+}
+
+.profile-avatar {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto var(--space-xl);
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 12px 40px rgba(76, 175, 80, 0.4);
+    position: relative;
+    z-index: 1;
+    border: 4px solid white;
+}
+
+.profile-info h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-xs);
+}
+
+.profile-email {
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: var(--neutral-100);
+    border-radius: var(--radius-xl);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+}
+
+.info-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.info-value {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* Profile Form */
+.profile-form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-form .form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.profile-form label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.profile-form input,
+.profile-form select {
+    width: 100%;
+    padding: var(--space-md);
+    font-size: var(--font-size-base);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.profile-form input:focus,
+.profile-form select:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+.profile-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+/* Metrics Card */
+.metrics-card,
+.achievements-card,
+.settings-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--neutral-200);
+    transition: all var(--transition-fast);
+}
+
+.metrics-card:hover,
+.achievements-card:hover,
+.settings-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.metrics-card h3,
+.achievements-card h3,
+.settings-card h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.metric-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--neutral-100);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.metric-item:hover {
+    background: var(--neutral-200);
+}
+
+.metric-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric-icon.calories {
+    background: linear-gradient(135deg, rgba(255, 109, 0, 0.15), rgba(255, 214, 0, 0.15));
+    color: var(--accent-orange);
+}
+
+.metric-icon.water {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(0, 188, 212, 0.15));
+    color: var(--secondary-600);
+}
+
+.metric-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.metric-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.metric-status {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.achievement-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--neutral-100);
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.achievement-item:hover {
+    transform: translateY(-4px);
+}
+
+.achievement-item.earned {
+    background: var(--primary-50);
+    box-shadow: var(--shadow-sm);
+}
+
+.achievement-item.locked {
+    opacity: 0.8;
+    background: var(--neutral-50);
+    border: 1px dashed var(--neutral-300);
+    filter: grayscale(1);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+    transition: transform var(--transition-spring);
+}
+
+.achievement-item:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.achievement-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.lock-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-size: 0.875rem;
+    background: rgba(0, 0, 0, 0.1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+/* Settings */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--neutral-100);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    width: 100%;
+}
+
+.settings-item:hover {
+    background: var(--neutral-200);
+    transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
